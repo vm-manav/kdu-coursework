@@ -1,49 +1,70 @@
 package org.example;
 
-import org.example.coin.Coins;
-import org.example.coin.CoinsList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.coin.Coins;
+import org.example.coin.CoinsList;
+
+import org.example.datafetch.HelperFunctions;
 import org.example.trader.TraderList;
 import org.example.trader.Traders;
 import org.example.transaction.Transactions;
+
 import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
     public static final CoinsList coinsList=new CoinsList();
     public static final TraderList traderList=new TraderList();
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
-        // This main method is intentionally left empty.
-        // It serves as an entry point for the application.
-        // Add relevant code here based on the application requirements.
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonTransactions = mapper.readTree(new File(Constants.FILE_JSON_PATH));
+            parseCSV(Path.of(Constants.COIN_CSV_PATH));
+            parseCSV(Path.of(Constants.TRADER_CSV_PATH));
+            int transactionCount = jsonTransactions.size();
+            CountDownLatch latch = new CountDownLatch(transactionCount);
+            executeTransactions(jsonTransactions, latch);
+            latch.await();
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
+        }
+
+        HelperFunctions helperFunctions=new HelperFunctions();
+            helperFunctions.detailsOfCoin("ETH",coinsList);
+            helperFunctions.showTopCoins(coinsList,8);
+            helperFunctions.showTraderPortfolio("0xaf903c532c73b66c934f6e2356344bb0",traderList);
+            helperFunctions.showTradersBasedOnProfit(traderList);
+        helperFunctions.showTraderProfit("0x1397ffcfbd2badb81a0734035a957ef1",traderList);
     }
-    public static ArrayList<String[]> parseCSV(Path path) throws IOException {
-        ArrayList<String[]> data = new ArrayList<>();
-        try(BufferedReader reader=new BufferedReader(new FileReader(path.toString()))){
-            String readLine=reader.readLine();
-            while ((readLine = reader.readLine()) != null) {
-                String[] columns = readLine.split(",");
-                if(columns.length==6) {
+    public static ArrayList<String[]> parseCSV(Path path) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
+            ArrayList<String[]> data = new ArrayList<>();
+
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] columns = line.split(",");
+
+                if(columns.length == 6) {
                     Coins coin=new Coins(columns[0],columns[1],columns[2],columns[3],columns[4],columns[5]);
                     coinsList.addCoin(coin);
-                } else if (columns.length==5) {
+                } else if (columns.length == 5) {
                     Traders trader=new Traders(columns[0],columns[1],columns[2],columns[3],columns[4]);
-                    traderList.addTrader(trader);
+                    TraderList.tradersArray.add(trader);
+
                 }
+
                 data.add(columns);
-                return data;
             }
-        }catch (IOException I) {
-            logger.log(Level.SEVERE, "Error reading the file", I);
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return new ArrayList<>();
@@ -52,22 +73,29 @@ public class Main {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            File file = new File(path);
-            JsonNode jsonNode=objectMapper.readTree(file);
-            executeTransactions(jsonNode, new CountDownLatch(3));
-
-        } catch (IOException | InterruptedException e) {
-            logger.log(Level.SEVERE, "Error reading the file", e);
+            return objectMapper.readTree(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return null;
     }
-    public static void executeTransactions(JsonNode jsonTransactions, CountDownLatch latch) throws JsonProcessingException, InterruptedException {
-        ExecutorService executorService= Executors.newFixedThreadPool(10);
+
+    public static void executeTransactions(JsonNode jsonTransactions, CountDownLatch
+            latch) throws JsonProcessingException, InterruptedException {
+        ExecutorService execService = Executors.newFixedThreadPool(10);
+
         ObjectMapper objectMapper = new ObjectMapper();
-        Transactions[] dataList = objectMapper.treeToValue(jsonTransactions, Transactions[].class);
-        for (Transactions transaction : dataList) {
-            ExecuteTransaction executeTransaction=new ExecuteTransaction(transaction,coinsList,traderList, latch);
-            executorService.submit(executeTransaction);
+        Transactions[] transactions = objectMapper.treeToValue(jsonTransactions, Transactions[].class);
+
+        ArrayList<Transactions> transactionArrayList = new ArrayList<>();
+        Collections.addAll(transactionArrayList, transactions);
+
+        for(Transactions obj : transactionArrayList) {
+            execService.execute(new ExecuteTransaction(obj,coinsList,traderList));
+            latch.countDown();
         }
+
+        execService.shutdown();
     }
 }

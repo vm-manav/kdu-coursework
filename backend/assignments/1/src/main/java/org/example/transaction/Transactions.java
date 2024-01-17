@@ -20,7 +20,7 @@ public class Transactions {
 
     public static class Data {
         private String coin;
-        private Long quantity;
+        private Long quantity= 0L;
         private String walletAddress;
         private Double price;
         private Double volume;

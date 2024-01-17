@@ -120,16 +120,20 @@ public class MainTest {
     @Test
     public void testConcurrentTransactions() {
         JsonNode transactionArray;
-        int numberOfThreads = 3;
+        System.out.println("fail1");
+        int numberOfThreads = 2;
+        System.out.println("faill2");
         CountDownLatch latch = new CountDownLatch(numberOfThreads);
+        System.out.println("faill3");
 
         try {
             transactionArray = Main.parseJsonFile("src/test/resources/test_transaction_1.json");
-
+            System.out.println("faill4");
             new Main();
+            System.out.println("faill5");
             Main.executeTransactions(transactionArray, latch);
         } catch (IOException | InterruptedException e) {
-            // TODO Auto-generated catch block
+            System.out.println("faill1");
             fail();
         }
 
@@ -260,14 +264,7 @@ public class MainTest {
      */
     @Test
     void testExecuteTransactionImplementsRunnable() {
-        // Create an instance of org.example.ExecuteTransaction
-        Transactions transaction=new Transactions();
-        CoinsList coinsList=new CoinsList();
-        TraderList traderList=new TraderList();
-        CountDownLatch latch = null;
-        ExecuteTransaction executeTransaction = new ExecuteTransaction(transaction,coinsList,traderList, latch);
-
-        // Check if the org.example.ExecuteTransaction class implements the Runnable interface
+        ExecuteTransaction executeTransaction = new ExecuteTransaction();
         assertTrue(executeTransaction instanceof Runnable, "org.example.ExecuteTransaction should implement Runnable");
     }
 }

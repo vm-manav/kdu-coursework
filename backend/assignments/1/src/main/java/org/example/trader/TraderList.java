@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class TraderList {
-    private final ArrayList<Traders> tradersArray=new ArrayList<>();
+    public static final ArrayList<Traders> tradersArray=new ArrayList<>();
 
     public List<Traders> getTradersArray(){
         return tradersArray;
@@ -21,7 +21,7 @@ public class TraderList {
     public void addTrader(Traders trader){
         this.tradersArray.add(trader);
     }
-    public synchronized void updateTrader(Traders trader ,String coinName,double price,long quantity,boolean isBuy) {
+    public void updateTrader(Traders trader ,String coinName,double price,long quantity,boolean isBuy) {
         if(isBuy) {
             trader.setProfit(trader.getProfit()+(quantity*price*-1));
         } else {
@@ -29,7 +29,7 @@ public class TraderList {
         }
         trader.updatePortfolio(coinName,quantity,isBuy);
     }
-    public synchronized boolean isSafeToSellQuantity(Traders trader,String coinName,long quantity) {
+    public boolean isSafeToSellQuantity(Traders trader,String coinName,long quantity) {
         return trader.getPortfolio().containsKey(coinName) && (trader.getPortfolio().get(coinName) >= quantity);
     }
 }

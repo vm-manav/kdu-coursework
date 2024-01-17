@@ -74,7 +74,7 @@ public class Coins {
         this.symbol=symbol;
         this.price=Double.parseDouble(price);
         this.maxQuantity=Long.parseLong(quantity);
-        coinsInMarket.set(0);
+        coinsInMarket.set(Long.parseLong(quantity));
     }
     public Coins(int rank, String name, String symbol, double price, long quantity){
         this.id= 0;

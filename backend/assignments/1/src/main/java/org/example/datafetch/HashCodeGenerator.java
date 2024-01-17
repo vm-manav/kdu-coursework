@@ -8,7 +8,7 @@ public class HashCodeGenerator {
         StringBuilder transactionHash = new StringBuilder();
         Random rnd = new Random();
 
-        for (double i = 0; i < 199999999; i++) {
+        for (double i = 0; i < 19; i++) {
             i = i;
         }
         while (transactionHash.length() < 128) {
