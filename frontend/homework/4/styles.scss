@@ -1,0 +1,25 @@
+main{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    .main-section{
+        padding: 20px;
+        p{
+            font-weight: 600;
+        }
+        border: 2px solid black;
+    }
+
+    #list{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .delete_button {
+        margin: 20px;
+        border: 2px solid black;
+    }
+}
