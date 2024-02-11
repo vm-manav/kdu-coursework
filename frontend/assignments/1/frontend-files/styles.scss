@@ -1,0 +1,620 @@
+@font-face {
+    font-family: ChirpRegular;
+    src: url(fonts/Chirp-Regular.woff2);
+  }
+  @font-face {
+    font-family: ChirpMedium;
+    src: url(fonts/Chirp-Medium.woff2);
+  }
+  @font-face {
+    font-family: ChirpHeavy;
+    src: url(fonts/Chirp-Heavy.woff2);
+  }
+  @font-face {
+    font-family: ChirpBold;
+    src: url(fonts/Chirp-Bold.woff2);
+  }
+
+$TEXTCOLORWHITE:white;
+$BACKGROUNDCOLOR:black;
+$IMAGECOLORWHITE:white;
+$POSTBUTTONCOLOR:#1D9BF0;
+$TEXTCOLORGREY:grey;
+$POSTBUTTONCOLORNONACTIVE:#0F4E78;
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: $BACKGROUNDCOLOR;
+    main{
+        display: flex;
+    }
+}
+.profile-logo-button{
+    display: none;
+}
+.post-icon-mobile{
+    display: none;
+}
+.navigation-section{
+    height: 100vh;
+    margin: 0;
+    margin-left: 40px;
+    padding-inline: 8px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    .upper-nav-block{
+        .main-nav{
+            width: fit-content;
+            img{
+                width: 50px;
+                height: 50px;
+                padding-block: 10px;
+            }
+            margin: 2px;
+        }
+        .nav-option-element{
+            margin-block: 4px;
+            width: fit-content;
+            display: flex;
+            padding: 12px;
+            gap: 10px;
+            img{
+                width: 26.25px;
+                height: 26.25px;
+            }
+            p{
+                font-family: ChirpRegular;
+                font-size: 20px;
+                font-weight: 400;
+                padding: 0;
+                margin: 0;
+                color: $TEXTCOLORWHITE;
+            }
+        }
+        #settings-and-privacy-cont{
+            display: none;
+        }
+        #monetization-cont{
+            display: none;
+        }
+        #log-out-cont{
+            display: none;
+        }
+        #nav-post-button{
+            background-color:$POSTBUTTONCOLOR;
+            font-size: 15px;
+            font-family: ChirpMedium;
+            color: $TEXTCOLORWHITE;
+            width: 231.094px;
+            height: 50px;
+            padding-inline: 32px;
+            border: 1px;
+            border-radius: 30px;
+        }
+    }
+    .lower-nav-block{
+        margin-top: 80px;
+        padding: 12px;
+        display: flex;
+        width: fit-content;
+        #profile-image-nitesh{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .profile-details{
+            color: $TEXTCOLORWHITE;
+            padding-left: 10px;
+            padding-right: 10px;
+            p{
+                width: 137.047px;
+                margin: 0;
+            }
+            #name{
+                font-size: 15px;
+                font-family: ChirpMedium;
+            }
+            #username{
+                font-size: 15px;
+                font-family: ChirpRegular;
+            }
+        }
+        #three-dots-nav{
+            padding-left: 20px;
+            width: 18.75;
+            height:18.75px;
+        }
+        .follower-following-cont{
+            display: none;
+        }
+        .plus-button-cont{
+            display: none;
+        }
+    }
+}
+#home-nav-element{
+    font-family: ChirpBold;
+    font-weight: 900;
+}
+
+.main-body{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid $TEXTCOLORGREY;
+    border-left: 1px solid $TEXTCOLORGREY;
+    .tweet-box{
+        .mobile-back-section{
+            display: none;
+        }
+        .mainbox{
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid $TEXTCOLORGREY;
+        margin-top: 40px;
+        padding: 4px 0px 0px;
+        padding: 0px 16px;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $TEXTCOLORGREY;
+        padding-bottom: 2px;
+
+        .profile-pic-main-section{
+            padding: 12px 0px 0px;
+            margin: 0px 12px 0px 0px;
+           #profile-image-main{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+           } 
+        }
+        .post-input-section{
+            display: flex;
+            flex-direction: column;
+            .world{
+                display: none;
+            }
+            .post-input-section1{
+                height: 80px;
+                color: $TEXTCOLORGREY;
+                font-family: ChirpRegular;
+                font-size: 20px;
+                padding-block: 12px;
+                margin-top: 8px;
+                align-items: center;
+                input{
+                    width: 509px;
+                    background-color: transparent;
+                    border: none;
+                    margin: 0;
+                    padding: 2px;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    &::placeholder{
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .post-input-section2{
+                display: flex;
+                justify-content: space-between;
+                .post-input-svg{
+                    width: 443.27px;
+                    display: flex;
+                    .svg-img-cont{
+                        width: 34px;
+                        height: 34px;
+                        padding: 7px 7px;
+                        .svg-icons-post{
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+                .post-input-button{
+                    box-sizing: content-box;
+                    padding: 0;
+                    margin: 0;
+                    background-color: $POSTBUTTONCOLORNONACTIVE;
+                    font-size: 15px;
+                    font-family: ChirpMedium;
+                    color: $TEXTCOLORWHITE;
+                    width: 32.73px;
+                    height: 34px;
+                    border: 1px;
+                    border-radius: 30px;
+                    padding-inline: 16px;
+                }
+            }
+        }
+        }
+    }
+    .posts{
+        display: flex;
+        flex-direction: column;
+        padding: 4px 0px 0px;
+        padding: 0px 16px 2px;
+        .post1{
+            border-bottom: 1px solid $TEXTCOLORGREY;
+            display: flex;
+            .profile-pic-post{
+                padding: 12px 0px 0px;
+                margin: 0px 12px 0px 0px;
+                #profile-image-post{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+            .post-details{
+                width: 493px;
+                .post-user-cont{    
+                    color: $TEXTCOLORWHITE;
+                    font-size: 15px;
+                    font-family: ChirpBold;
+                    #user-handel{
+                        color: $TEXTCOLORGREY;
+                        font-size: 15px;
+                        font-family: ChirpRegular;
+                    }
+                }
+                .post-react-svg{
+                    display: flex;
+                    justify-content: space-between;
+                    .post-svg-cont{
+                        .post-reaction-svg{
+                            width: 18.75px;
+                            height: 18.75px;
+                        }
+                    }
+                    #like-class{
+                        display: flex;
+                        .likes-count{
+                            display: none;
+                            font-size: 13px;
+                            font-family: ChirpRegular;
+                            color: #F91880;
+                            margin: 0;
+                            padding-top: 3px;
+                            margin-left: 3px;
+                        }
+                    }
+                    #reaction-count{
+                        display: flex;
+                        .reaction-count{
+                            display: none;
+                            font-size: 13px;
+                            font-family: ChirpRegular;
+                            color: gray;
+                            margin: 0;
+                            padding-top: 3px;
+                            margin-left: 3px;
+                        }
+                    }
+                }
+                .content-post{
+                    color: $TEXTCOLORWHITE;
+                    font-size: 15px;
+                    font-family: ChirpMedium;
+                    .bluetext{
+                        color: $POSTBUTTONCOLOR;
+                    }
+                }
+            }
+            .others{
+                padding-left: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-top: 12px;
+                .other-icons{
+                    .other-icon-svg{
+                        width: 18.75px;
+                        height: 18.75px;
+                    }
+                }
+            }
+        }
+    }
+    // .horizontal-line{
+    //     display: none;
+    // }
+}
+
+@media only screen and (max-width: 414px) {
+    .profile-logo-button{
+        width: 100%;
+        display: flex;
+        height: 57px;
+        align-items: center;
+        padding-inline: 16px;
+        img{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+        p{
+            margin-left: 20px;
+            flex-grow: 1;
+            font-size: 17px;
+            font-family: ChirpBold;
+            color: white;
+        }
+    }
+    .post-icon-mobile{
+        position: absolute;
+        bottom: 89px;
+        right: 27px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $POSTBUTTONCOLOR;
+        width: 56px;
+        height: 56px;
+        img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .navigation-section{
+        width: 65%;
+        display: none;
+        height: 701px;
+        padding-inline: 16px;
+        position: fixed;
+        background-color: black;
+        margin-left: 0;
+        #nav-lb{
+            order: -1;
+        }
+        .lower-nav-block{
+            // height: 153.53px;
+            width: 100%;
+            position: relative;
+            flex-direction: column;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            padding: 0;
+
+            .profile-details{
+                padding: 0;
+                padding-top: 8px;
+                #name{
+                    font-size: 17px;
+                    font-family: ChirpBold;
+                }
+                #username{
+                    color: grey;
+                }
+            }
+
+            .follower-following-cont{
+                display: flex;
+                gap: 18px;
+                margin-top: 15px;
+                p{
+                    margin: 0;
+                    padding: 0;
+                    font-size: 14px;
+                    font-family: ChirpRegular;
+                    color: white;
+                    .follower-following-span{
+                        color: grey;
+                    }
+                }
+            }
+            #three-dots-nav{
+                display: none;
+            }
+            .plus-button-cont{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0px;
+                right: 0px;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 1px solid white;
+                border-radius: 50%;
+                .plus-icon-svg{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+        .upper-nav-block{
+            display: flex;
+            flex-direction: column;
+
+            .nav-option-element{
+                width: 100%;
+                padding-inline: 0;
+                padding-block: 16px;
+                margin-block: 0;
+                gap: 0;
+                .nav-svg-image{
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 24px;
+                }
+                p{
+                    font-family: ChirpMedium;
+                }
+            }
+
+
+
+
+            #main-nav-logo{
+                display: none;
+            }
+            #home-logo{
+                display: none;
+            }
+            #explore-logo{
+                display: none;
+            }
+            #notification-logo{
+                display: none;
+            }
+            #message-logo{
+                display: none;
+            }
+            #grok-logo{
+                display: none;
+            }
+            #monetization-cont{
+                order: 5;
+                display: flex;
+            }
+            #settings-and-privacy-cont{
+                order: 6;
+                display: flex;
+            }
+            #log-out-cont{
+                order: 7;
+                display: flex;
+            }
+            #profile-logo{
+                order: 0;
+            }
+            #premium-logo{
+                order: 1;
+            }
+            #list-logo{
+                order: 2;
+            }
+            #bookmark-logo{
+                order: 3;
+            }
+            #communities-logo{
+                order: 4;
+            }
+            #nav-post-button{
+                display: none;
+            }
+            #more-logo{
+                display: none;
+            }
+        }
+    }
+    
+    .main-body{
+        display: none;
+        width: fit-content;
+        border: none;
+
+        .tweet-box{
+            border-left: 1px solid gray;
+            .mobile-back-section{
+                height: 53px;
+                padding-inline: 16px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 204px;
+                .arrow-back{
+                    display: flex;
+                    width: 34px;
+                    height: 34px;
+                    align-items: center;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                .draft{
+                    font-size: 14px;
+                    font-family: ChirpBold;
+                    color: $POSTBUTTONCOLOR;
+                }
+            }
+            .mainbox{
+                border: none;
+                margin: 0;
+                margin-bottom: 90px;
+
+                // border-bottom: 1px solid gray;
+                .profile-pic-main-section{
+                    padding: 12px 0px 0px;
+                        margin: 0px 12px 0px 0px;
+                }
+                .post-input-section{
+                    .post-input-section1{
+                        height: 120px;
+                        width: 326px;
+                        margin: 0;
+                        
+                        .post-input{
+                            width: 326px;
+                            padding-top: 8px;
+                            font-size: 20px;
+                        }
+                    }
+                    .world{
+                        display: flex;
+                        position: absolute;
+                        top: 184px;
+                        left: 19px;
+                        margin-bottom: 90px;
+                        img{
+                            margin: 0px 4px 0px 0px;
+                            width: 16px;
+                            height:16px;
+                        }
+                        p{
+                            margin: 0;
+                            font-size: 13px;
+                            font-family: ChirpBold;
+                            color: $POSTBUTTONCOLOR;
+                        }
+                    }
+                }
+                
+                .post-input-section2{
+                    .post-input-svg{
+                        width: fit-content;
+                        position:absolute;
+                        top: 225px;
+                        left: 10px;
+                    }
+                    .post-input-button-cont{
+                        position: absolute;
+                        top: 10px;
+                        right:26px;
+                        .post-input-button{
+                            color: #808080;
+                            font-size: 13px;
+                            width: 32px;
+                            height: 31px;
+                            padding-inline: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .horizontal-line{
+            width: 100%;
+            position: absolute;
+            top: 215px;
+            left: 10px;
+            border-top: 1px solid grey;
+        }
+        .posts{
+            .post1{
+                .post-details{
+                    width: 303px;
+                }
+            }
+        }
+    }
+}
