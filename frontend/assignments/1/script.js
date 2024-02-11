@@ -1,23 +1,23 @@
-var postButton = document.getElementById('tweet-btn');
+let postButton = document.getElementById('tweet-btn');
 
-var postInput = document.querySelector('.post-input');
+let postInput = document.querySelector('.post-input');
 
 postInput.addEventListener('keyup', function () {
-    var inputValue = postInput.value.trim(); 
+    let inputValue = postInput.value.trim(); 
 
     postButton.style.backgroundColor = inputValue ? '#1D9BF0' : '';
 });
 
 
 postButton.addEventListener('click', function () {
-    var inputValue = postInput.value;
+    let inputValue = postInput.value;
 
     if (inputValue){
     function formatHashtags(text) {
         return text.replace(/#(\w+)/g, '<span class="bluetext">#$1</span>');
     }
-    var formattedInput = formatHashtags(inputValue);
-    var newPost = document.createElement('div');
+    let formattedInput = formatHashtags(inputValue);
+    let newPost = document.createElement('div');
     newPost.className = 'post1';
 
     newPost.innerHTML = `
@@ -58,7 +58,7 @@ postButton.addEventListener('click', function () {
             </div>
         </div>
     `;
-    var postsContainer = document.querySelector('.posts');
+    let postsContainer = document.querySelector('.posts');
     postsContainer.appendChild(newPost);
 
   postInput.value = '';
@@ -71,19 +71,19 @@ postButton.addEventListener('click', function () {
     
 });
 
-var profileIcon = document.querySelector('.profile-icon');
+let profileIcon = document.querySelector('.profile-icon');
 
-var navbarSection = document.querySelector('.navigation-section');
+let navbarSection = document.querySelector('.navigation-section');
 
 profileIcon.addEventListener('click', function() {
     navbarSection.style.display = (navbarSection.style.display === 'flex') ? 'none' : 'flex';
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    var floatingTweetBoxIcon = document.querySelector('.floating-tweet-box-icon');
-    var mainBodySection = document.querySelector('.main-body');
-    var profileLogoButton = document.querySelector('.profile-logo-button');
-    var postIconMobile = document.querySelector('.post-icon-mobile');
+    let floatingTweetBoxIcon = document.querySelector('.floating-tweet-box-icon');
+    let mainBodySection = document.querySelector('.main-body');
+    let profileLogoButton = document.querySelector('.profile-logo-button');
+    let postIconMobile = document.querySelector('.post-icon-mobile');
     floatingTweetBoxIcon.addEventListener('click', function() {
         mainBodySection.style.display = 'flex';
         profileLogoButton.style.display = 'none';
@@ -91,16 +91,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-var liked = false;
+let liked = false;
 
 document.addEventListener('DOMContentLoaded', function() {
-    var likeSvg = document.getElementById('like-svg');
-    var likesCount = document.querySelector('.likes-count');
-    var reactionCount = document.querySelector('.reaction-count');
+    let likeSvg = document.getElementById('like-svg');
+    let likesCount = document.querySelector('.likes-count');
+    let reactionCount = document.querySelector('.reaction-count');
     likeSvg.addEventListener('click', function() {
         likesCount.style.display = liked ? 'none' : 'block';
         reactionCount.style.display = liked ? 'none' : 'block';
-        var likeImage = document.getElementById('like-svg');
+        let likeImage = document.getElementById('like-svg');
         likeImage.src = liked ? "icons/heart.svg" : "icons/heart_full.svg";
         liked = !liked;
     });

@@ -67,7 +67,7 @@ body main {
   height: 26.25px;
 }
 .navigation-section .upper-nav-block .nav-option-element p {
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
   font-size: 20px;
   font-weight: 400;
   padding: 0;
@@ -86,7 +86,7 @@ body main {
 .navigation-section .upper-nav-block #nav-post-button {
   background-color: #1D9BF0;
   font-size: 15px;
-  font-family: ChirpMedium;
+  font-family: ChirpMedium,sans-serif;
   color: white;
   width: 231.094px;
   height: 50px;
@@ -117,11 +117,11 @@ body main {
 }
 .navigation-section .lower-nav-block .profile-details #name {
   font-size: 15px;
-  font-family: ChirpMedium;
+  font-family: ChirpMedium,sans-serif;
 }
 .navigation-section .lower-nav-block .profile-details #username {
   font-size: 15px;
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
 }
 .navigation-section .lower-nav-block #three-dots-nav {
   padding-left: 20px;
@@ -136,7 +136,7 @@ body main {
 }
 
 #home-nav-element {
-  font-family: ChirpBold;
+  font-family: ChirpBold,sans-serif;
   font-weight: 900;
 }
 
@@ -150,16 +150,13 @@ body main {
   display: none;
 }
 .main-body .tweet-box .mainbox {
-  padding: 0;
   margin: 0;
   border-top: 1px solid grey;
   margin-top: 40px;
-  padding: 4px 0px 0px;
-  padding: 0px 16px;
+  padding: 0px 16px 2px 0px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid grey;
-  padding-bottom: 2px;
 }
 .main-body .tweet-box .mainbox .profile-pic-main-section {
   padding: 12px 0px 0px;
@@ -180,7 +177,7 @@ body main {
 .main-body .tweet-box .mainbox .post-input-section .post-input-section1 {
   height: 80px;
   color: grey;
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
   font-size: 20px;
   padding-block: 12px;
   margin-top: 8px;
@@ -193,7 +190,6 @@ body main {
   margin: 0;
   padding: 2px;
   color: white;
-  border: none;
   outline: none;
 }
 .main-body .tweet-box .mainbox .post-input-section .post-input-section1 input::-moz-placeholder {
@@ -225,7 +221,7 @@ body main {
   margin: 0;
   background-color: #0F4E78;
   font-size: 15px;
-  font-family: ChirpMedium;
+  font-family: ChirpMedium,sans-serif;
   color: white;
   width: 32.73px;
   height: 34px;
@@ -258,12 +254,12 @@ body main {
 .main-body .posts .post1 .post-details .post-user-cont {
   color: white;
   font-size: 15px;
-  font-family: ChirpBold;
+  font-family: ChirpBold,sans-serif;
 }
 .main-body .posts .post1 .post-details .post-user-cont #user-handel {
   color: grey;
   font-size: 15px;
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
 }
 .main-body .posts .post1 .post-details .post-react-svg {
   display: flex;
@@ -279,7 +275,7 @@ body main {
 .main-body .posts .post1 .post-details .post-react-svg #like-class .likes-count {
   display: none;
   font-size: 13px;
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
   color: #F91880;
   margin: 0;
   padding-top: 3px;
@@ -291,7 +287,7 @@ body main {
 .main-body .posts .post1 .post-details .post-react-svg #reaction-count .reaction-count {
   display: none;
   font-size: 13px;
-  font-family: ChirpRegular;
+  font-family: ChirpRegular,sans-serif;
   color: gray;
   margin: 0;
   padding-top: 3px;
@@ -300,7 +296,7 @@ body main {
 .main-body .posts .post1 .post-details .content-post {
   color: white;
   font-size: 15px;
-  font-family: ChirpMedium;
+  font-family: ChirpMedium,sans-serif;
 }
 .main-body .posts .post1 .post-details .content-post .bluetext {
   color: #1D9BF0;
@@ -334,7 +330,7 @@ body main {
     margin-left: 20px;
     flex-grow: 1;
     font-size: 17px;
-    font-family: ChirpBold;
+    font-family: ChirpBold,sans-serif;
     color: white;
   }
   .post-icon-mobile {
@@ -379,7 +375,7 @@ body main {
   }
   .navigation-section .lower-nav-block .profile-details #name {
     font-size: 17px;
-    font-family: ChirpBold;
+    font-family: ChirpBold,sans-serif;
   }
   .navigation-section .lower-nav-block .profile-details #username {
     color: grey;
@@ -393,7 +389,7 @@ body main {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    font-family: ChirpRegular;
+    font-family: ChirpRegular,sans-serif;
     color: white;
   }
   .navigation-section .lower-nav-block .follower-following-cont p .follower-following-span {
@@ -435,7 +431,7 @@ body main {
     margin-right: 24px;
   }
   .navigation-section .upper-nav-block .nav-option-element p {
-    font-family: ChirpMedium;
+    font-family: ChirpMedium,sans-serif;
   }
   .navigation-section .upper-nav-block #main-nav-logo {
     display: none;
@@ -517,7 +513,7 @@ body main {
   }
   .main-body .tweet-box .mobile-back-section .draft {
     font-size: 14px;
-    font-family: ChirpBold;
+    font-family: ChirpBold,sans-serif;
     color: #1D9BF0;
   }
   .main-body .tweet-box .mainbox {
@@ -554,7 +550,7 @@ body main {
   .main-body .tweet-box .mainbox .post-input-section .world p {
     margin: 0;
     font-size: 13px;
-    font-family: ChirpBold;
+    font-family: ChirpBold,sans-serif;
     color: #1D9BF0;
   }
   .main-body .tweet-box .mainbox .post-input-section2 .post-input-svg {
@@ -586,4 +582,4 @@ body main {
   .main-body .posts .post1 .post-details {
     width: 303px;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
