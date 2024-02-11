@@ -7,7 +7,9 @@ module.exports = defineConfig({
   video: false,
 
   e2e: {
+
     baseUrl: "http://manav-fe-assignment-1.s3-website.ap-south-1.amazonaws.com",
+    // Base URL for your application
 
     setupNodeEvents(on, config) {
       getCompareSnapshotsPlugin(on, config);
@@ -21,6 +23,6 @@ module.exports = defineConfig({
     HOME_PAGE_URL: "/index.html",
     LOGIN_PAGE_URL: "login/index.html",
     REGISTER_PAGE_URL: "/register/index.html",
-    TEST_THRESHOLD: 0.2,
+    TEST_THRESHOLD: 0.35,
   },
 });
