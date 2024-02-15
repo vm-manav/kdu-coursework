@@ -1,0 +1,169 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #C5FFF8;
+    width: 100%;
+    margin: 0;
+    padding-inline: 350px;
+    padding-top: 20px;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    p{
+        width: 100%;
+        background-color: #5FBDFF;
+        border: 1px solid black;
+        border-radius: 20px;
+        font-family: "Protest Riot", sans-serif;
+        font-size: 50px;
+        margin: 0;
+        text-align: center;
+        padding-block: 5px;
+    }
+    .input-section{
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        width: 100%;
+
+        #input-box{
+            flex-basis: 30%;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            background-color: #96EFFF;
+            font-family: "Protest Riot", sans-serif;
+            font-size: 25px;
+            font-weight: 100;
+            border-radius: 20px;
+            padding-block: 5px;
+            padding-left: 15px;
+        }
+        #search-button{
+            background-color: #7B66FF;
+            flex-basis: 10%;
+            color: white;
+            font-family: "Protest Riot", sans-serif;
+            font-size: 20px;
+            width: fit-content;
+            border-radius: 50px;
+            padding-block: 5px;
+        }
+    }
+}
+
+
+main{
+    margin-top: 20px;
+    padding-top: 40px;
+    overflow-y: scroll;
+    height: 900px;
+    .all-recipies{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+        padding-bottom: 200px;
+
+        .recipie{
+            position: relative;
+            background-color: #F1EAFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 40px;
+            border: 2px solid black;
+            padding: 10px;
+            .img-recipe{
+                padding: 20px;
+                width: 300px;
+                height: 300px;
+                border-radius: 40px;
+            }
+            .dish{
+                display: flex;
+                justify-content: center;
+                max-width: 350px;
+                font-size: 30px;
+                font-family: "Protest Riot", sans-serif;
+                margin: 15px;
+            }
+            .ingredients{
+                width: fit-content;
+                border: 1px solid black;
+                border-radius: 10px;
+                p{
+                    width: 230px;
+                    padding: 5px;
+                    font-size: 20px;
+                    font-family: "Protest Riot", sans-serif;
+                    margin: 0;
+                }
+            }
+            .block1{
+                display: flex;
+                gap: 60px;
+                margin: 15px;
+                p{
+                    width: 80px;
+                    padding: 5px;
+                    margin: 0;
+                    border: 1px solid black;
+                    font-size: 20px;
+                    font-family: "Protest Riot", sans-serif;
+                    border-radius: 8px;
+                }
+            }
+            .block2{
+                display: flex;
+                gap: 60px;
+                margin: 15px;
+                p{
+                    width: 80px;
+                    padding: 5px;
+                    margin: 0;
+                    border: 1px solid black;
+                    font-size: 20px;
+                    font-family: "Protest Riot", sans-serif;
+                    border-radius: 8px;
+                }
+            }
+            .rating{
+                position: absolute;
+                background-color: #525CEB;
+                padding: 20px;
+                border-radius: 40%;
+                top:-20px;
+                right: -20px;
+                p{
+                    font-size: 30px;
+                    font-weight: 400;
+                    font-family: "Protest Riot", sans-serif;  
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
