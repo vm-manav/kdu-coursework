@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kdu Stock App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <p>KDU Stock Market Dashboard</p>
+    </header>
+    <main>
+        <section id="stock-dashboard">
+            <div id="stock-details">
+                <div class="stock-identity">
+                    <img id="stock-image" src="" alt="zomato image">
+                    <p id="stock-name"></p>
+                </div>
+                <div class="stock-price">
+                    <p id="price-tag">Price </p>
+                    <p id="current-stock-price">0</p>
+                    <p id="stock-growth-percentage">0.00%</p>
+                </div>
+                <div class="quantity-container">
+                    <input id="quantity-box" type="text" placeholder="Enter QTY">
+                </div>
+                <div class="buy-button-container">
+                    <button id="buy-button">BUY</button>
+                </div>
+                <div class="sell-button-container">
+                    <button id="sell-button">SELL</button>
+                </div>
+            </div>
+            <div id="stock-graph">
+                <div class="grid-cont">
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                    <div class="gridblock"></div>
+                </div>
+            </div>
+        </section>
+        <section id="history-dashboard">
+            <P class="history-p">History</P>
+            <div class="history-details-container">
+                
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>    
+</body>
+</html>
