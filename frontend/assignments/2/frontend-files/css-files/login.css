@@ -1,0 +1,128 @@
+@font-face {
+  font-family: ChirpRegular;
+  src: url(/frontend-files/fonts/Chirp-Regular.woff2);
+}
+@font-face {
+  font-family: ChirpMedium;
+  src: url(/frontend-files/fonts/Chirp-Medium.woff2);
+}
+@font-face {
+  font-family: ChirpHeavy;
+  src: url(/frontend-files/fonts/Chirp-Heavy.woff2);
+}
+@font-face {
+  font-family: ChirpBold;
+  src: url(/frontend-files/fonts/Chirp-Bold.woff2);
+}
+body {
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .login-heading {
+  display: flex;
+  align-content: end;
+  gap: 10px;
+}
+main .login-heading p {
+  margin: 0;
+  color: white;
+  font-size: 60px;
+  font-weight: 500;
+  font-family: ChirpMedium, sans-serif;
+}
+main .login-heading img {
+  width: 56px;
+  height: 56px;
+}
+main .login-input-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+main .login-input-section #username {
+  background-color: black;
+  color: white;
+  outline: none;
+  width: 18%;
+  border: 2px solid #1D9BF0;
+  border-radius: 7px;
+  font-family: ChirpMedium, sans-serif;
+  font-size: 22px;
+  padding-left: 18px;
+  padding-block: 11px;
+}
+main .login-input-section input::-moz-placeholder {
+  color: white;
+}
+main .login-input-section input::placeholder {
+  color: white;
+}
+main .login-input-section #password {
+  background-color: black;
+  color: white;
+  outline: none;
+  width: 18%;
+  border: 2px solid #1D9BF0;
+  border-radius: 7px;
+  font-family: ChirpMedium, sans-serif;
+  font-size: 22px;
+  padding-left: 18px;
+  padding-block: 11px;
+}
+main .login-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+main .login-button-container #login-button {
+  width: 19%;
+  padding-block: 10px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  font-family: ChirpBold, sans-serif;
+  color: white;
+  background-color: #1D9BF0;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 414px) {
+  main .login-heading {
+    gap: 8px;
+  }
+  main .login-heading p {
+    margin: 0;
+    color: white;
+    font-size: 46px;
+    font-weight: 46px;
+  }
+  main .login-heading img {
+    width: 50px;
+    height: 50px;
+  }
+  main .login-input-section #username {
+    width: 60%;
+    font-size: 18px;
+  }
+  main .login-input-section #password {
+    width: 60%;
+    font-size: 18px;
+  }
+  main .login-button-container #login-button {
+    width: 65%;
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=login.css.map */

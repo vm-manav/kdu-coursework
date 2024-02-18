@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>message-section</title>
+    <link rel="stylesheet" href="/frontend-files/css-files/message.css">
+    <script defer src="/frontend-files/js-files/message.js"></script>
+</head>
+<body>
+    <main>
+        <section class="profile-logo-button">
+            <img class="profile-icon" src="/frontend-files/images/profile pic.png" alt="profile pic">
+        </section>
+        <section class="navigation-section">
+            <div class="upper-nav-block">
+                <div id="main-nav-logo" class="main-nav">
+                    <img class="nav-svg-image" src="/frontend-files/icons/logo.svg" alt="X logo">
+                </div>
+                <div id="home-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/home.svg" alt="home logo">
+                    <p id="home-nav-element">Home</p>
+                </div>
+                <div id="explore-logo" class="nav-option-element">
+                    <img  class="nav-svg-image"src="/frontend-files/icons/search.svg" alt="search logo">
+                    <p>Explore</p>
+                </div>
+                <div id="notification-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/notification.svg" alt="notifications logo">
+                    <p>Notifications</p>
+                </div>
+                <div id="message-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/message.svg" alt="message logo">
+                    <p>Messages</p>
+                </div>
+                <div id="grok-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/grok.svg" alt="grok logo">
+                    <p>Grok</p>
+                </div>
+                <div id="list-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/list.svg" alt="list logo">
+                    <p>Lists</p>
+                </div>
+                <div id="bookmark-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/bookmark.svg" alt="bookmarks logo">
+                    <p>Bookmarks</p>
+                </div>
+                <div id="communities-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/communities.svg" alt="communities logo">
+                    <p>Communities</p>
+                </div>
+                <div id="premium-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/logo.svg" alt="x logo">
+                    <p>Premium</p>
+                </div>
+                <div id="profile-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/person.svg" alt="profile logo">
+                    <p>Profile</p>
+                </div>
+                <div id="more-logo" class="nav-option-element">
+                    <img class="nav-svg-image" src="/frontend-files/icons/more.svg" alt="more logo">
+                    <p>More</p>
+                </div>
+                <div>
+                    <button id="nav-post-button">Post</button>
+                </div>
+            </div>
+            <div id="nav-lb" class="lower-nav-block">
+                <img id="profile-image-nitesh" src="/frontend-files/images/profile pic.png" alt="profile pic">
+                <div class="profile-details">
+                    <p id="name">Nitesh Gupta</p>
+                    <p id="username">@nit_hck</p>
+                </div>
+                <img id="three-dots-nav" src="/frontend-files/icons/three_dots.svg" alt="three dots image">
+            </div>
+        </section>
+
+        <section class="users-message-container">
+            <p class="messages-heading">Messages</p>
+            <div class="users-dm">
+                <div class="messages-individual-user">
+                    <img class="messages-user-image" src="/frontend-files/images/img2.jpeg" alt="profile image">
+                    <p class="messages-user-name">Sagun Sangwan</p>
+                    <p class="messages-user-username">@ShagunSangwan15</p>
+                </div>
+            </div>
+        </section>
+        <section class="direct-message-container">
+            <div class="direct-message-user-name">
+                <div class="arrow-back">
+                    <img src="/frontend-files/icons/backarrow.svg" alt="back arrow">
+                </div>
+                <p>Sagun Sangwan</p>
+            </div>
+            <div class="coversation-container">
+               
+            </div>
+            <div class="message-box-container">
+                <div class="message-box">
+                    <input id="message-box-input" type="text" placeholder="Start a new message">
+                    <img id="message-box-button" src="/frontend-files/icons/message-send.svg" alt="messages button">
+                </div>
+            </div>
+        </section>
+        <section class="home-navigation">
+            <div class="nav-option-element">
+                <img class="nav-svg-image" src="/frontend-files/icons/home.svg" alt="home logo">
+            </div>
+            <div class="nav-option-element">
+                <img  class="nav-svg-image"src="/frontend-files/icons/search.svg" alt="search logo">
+            </div>
+            <div class="nav-option-element">
+                <img class="nav-svg-image" src="/frontend-files/icons/home-nav-grok.svg" alt="grok logo">
+            </div>
+            <div class="nav-option-element">
+                <img class="nav-svg-image" src="/frontend-files/icons/notification.svg" alt="notifications logo">
+            </div>
+            <div id="message-logo-home" class="nav-option-element">
+                <img class="nav-svg-image" src="/frontend-files/icons/message.svg" alt="message logo">
+            </div>
+        </section>
+        <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+    </main>
+</body>
+</html>
