@@ -1,0 +1,38 @@
+$GREEN : #B2F2BB;
+$TEXTCOLOR : #F08C03;
+$LISTTEXTCOLOR:#2F9E44;
+$BORDERCOLOR:#F4A426;
+#skills{
+    height: 42vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    background-color: $GREEN;
+    border: 1.5px solid $BORDERCOLOR;
+
+    #skills-heading{
+        padding-top: 20px;
+        align-self: center;
+        color: $TEXTCOLOR;
+        font-size: 25px;
+    }
+    #list-container{
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        .list-element{
+            color: $LISTTEXTCOLOR;
+            list-style: none;
+            font-size: 20px;
+
+        }   
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #skills{
+        height: 25vh;
+    }
+}
