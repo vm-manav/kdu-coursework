@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+$TEXTCOLORBLUE:#0C359E;
+$BACKGROUNDCOLORBLUE:#0C359E;
+$TEXTCOLORPINK:#EE99C2;
+$BUTTONBACKGROUNDCOLOR:#FFE3CA;
+$TEXTCOLORWHITE:#F6F5F5;
+$TAGCOLORPINK:#EE99C2;
+
+#quotes-app{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Noto Sans", sans-serif;
+    margin-top: 10px;
+    gap: 15px;
+    margin-inline: auto;
+
+    #new-quote-button{
+        width: 140px;
+        background-color: $BUTTONBACKGROUNDCOLOR;
+        color: $TEXTCOLORBLUE;
+        border: none;
+        outline: none;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+    #new-quote-button[disabled] {
+        background-color: #ccc;
+        cursor: not-allowed;
+        #spin {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top: 2px solid var(--TEXTCOLORBLUE);
+            animation: spin 0.8s linear infinite;
+          }
+    }
+      
+    #heading-filter{
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .quote-tag-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: fit-content;
+
+        .quote-tag-element{
+            background-color: $TAGCOLORPINK;
+            padding-block: 6px;
+            padding-inline: 18px;
+            border-radius: 50px;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            .delete-tag-button{
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    .quotes-container{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+  
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

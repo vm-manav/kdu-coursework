@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+$TEXTCOLORBLUE:#0C359E;
+$BACKGROUNDCOLORBLUE:#0C359E;
+$TEXTCOLORGRAY:#D5D5D5;
+$BUTTONBACKGROUNDCOLOR:#FFE3CA;
+$TEXTCOLORWHITE:#F6F5F5;
+$TAGCOLORPINK:#EE99C2;
+
+#quote-container{
+    width: 100%;
+    background-color: $BACKGROUNDCOLORBLUE;
+    border-radius: 20px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    #quote-content{
+        color: $TEXTCOLORWHITE;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 23px;
+        font-weight: 600;
+        margin-inline: 50px;
+        margin-top: 22px;
+        margin-bottom: 17px;
+        text-align: center;
+
+        @media screen and (max-width: 414px) {
+            font-size: 18px;
+            text-align: left;
+            margin-inline: 20px;
+        }
+
+    }
+
+    #quote-author{
+        color: $TEXTCOLORGRAY;
+        width: fit-content;
+        margin-right: 20px;
+        align-self: flex-end;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    #quote-date{
+        margin-top: 5px;
+        color: $TEXTCOLORGRAY;
+        width: fit-content;
+        margin-right: 20px;
+        align-self: flex-end;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .quote-tag-container{
+        margin-left: 22px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: fit-content;
+        
+
+        .quote-tag-element{
+            background-color: $TAGCOLORPINK;
+            padding-block: 6px;
+            padding-inline: 18px;
+            border-radius: 50px;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            border: none;
+            outline: none;
+        }
+       
+    }
+
+}
+
+.delete-tag-button{
+    margin-left: 12px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
