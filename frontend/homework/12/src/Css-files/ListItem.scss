@@ -1,0 +1,33 @@
+$BUTTONCOLORRED: #f0143e;
+$TEXTCOLORWHITE: white;
+$border-color: rgba(128, 128, 128, 0.447);
+
+.individual-list-element {
+  &:last-child {
+    border-bottom: 1px solid $border-color;
+  }
+  .list-item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $border-color;
+    border-inline: 1px solid $border-color;
+
+    .list-item-name {
+      font-size: 14px;
+      padding: 6px;
+      padding-inline: 10px;
+    }
+    .delete-button {
+      font-size: 10px;
+      margin-block: 5px;
+      padding-inline: 5px;
+      background-color: $BUTTONCOLORRED;
+      color: white;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+  }
+}
