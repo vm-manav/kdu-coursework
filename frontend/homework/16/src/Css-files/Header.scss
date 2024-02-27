@@ -1,0 +1,25 @@
+$HEADINGTEXTCOLOR: white;
+$BACKGROUNDCOLOR: #00aa34;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+#header-container {
+  color: $HEADINGTEXTCOLOR;
+  background-color: $BACKGROUNDCOLOR;
+  display: flex;
+  height: 100px;
+  font-family: "Lato", sans-serif;
+  align-items: center;
+  justify-content: space-around;
+  #header-head {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  #input-box {
+    font-size: 12px;
+    width: 28%;
+    padding-block: 3px;
+    padding-left: 4px;
+    outline: none;
+  }
+}
