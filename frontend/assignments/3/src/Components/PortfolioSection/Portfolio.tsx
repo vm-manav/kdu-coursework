@@ -29,12 +29,15 @@ import {
   groupSortAndSortNewestFirst,
 } from "../Utills/SortTransactions";
 import { GroupedTransaction } from "../../TypeFiles/PersonalTransactionType";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 
 export function Portfolio() {
   const transactions = useSelector(
     (state: RootState) => state.transaction.transactions
   );
-
+  const transactionsState = useSelector(
+    (state: RootState) => state.transaction.state
+  );
   const [sortedTransactions, setSortedTransactions] = useState<
     GroupedTransaction[]
   >([]);
@@ -46,15 +49,19 @@ export function Portfolio() {
   const [showPassed, setShowPassed] = useState(false);
   const [showFailed, setShowFailed] = useState(false);
   const [selectedStocks, setSelectedStocks] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     const sortedData = groupSortAndSortNewestFirst(transactions);
     setSortedTransactions(sortedData);
     const uniqueSymbols = getUniqueStockNames(transactions);
     setUniqueStockNames(uniqueSymbols);
+    setLoading(false);
   }, [transactions]);
 
   useEffect(() => {
+    setLoading(true);
     const filteredResults = sortedTransactions
       .filter((group) =>
         group.transactions.some((transaction) =>
@@ -96,7 +103,7 @@ export function Portfolio() {
       });
 
     setFilterResults(filteredResults);
-    console.log(filterResults);
+    setLoading(false);
   }, [
     searchTerm,
     startDate,
@@ -149,136 +156,147 @@ export function Portfolio() {
     return `${day} ${months[month - 1]} ${year}`;
   }
   return (
-    <PortfolioMainSection>
-      <FilterSectionContainer>
-        <FilterSection>
-          <FilterHeaderContainer>
-            <p>Filters</p>
-            <button onClick={clearFilters}>Clear All</button>
-          </FilterHeaderContainer>
-          <FilterSearchContainer>
-            <SearchBox>
-              <img src={search} alt="searchImage" />
-              <input
-                type="text"
-                placeholder="Search For a Stock"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </SearchBox>
-          </FilterSearchContainer>
-          <FilterDateContainer>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DatePicker"]}>
-                <DatePicker
-                  label="Start Date"
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
+    <>
+      {transactionsState === "pending" && <LoadingSpinner />}
+      {loading && <LoadingSpinner />}
+      {transactionsState === "fulfilled" && !loading && (
+        <PortfolioMainSection>
+          <FilterSectionContainer>
+            <FilterSection>
+              <FilterHeaderContainer>
+                <p>Filters</p>
+                <button onClick={clearFilters}>Clear All</button>
+              </FilterHeaderContainer>
+              <FilterSearchContainer>
+                <SearchBox>
+                  <img src={search} alt="searchImage" />
+                  <input
+                    type="text"
+                    placeholder="Search For a Stock"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </SearchBox>
+              </FilterSearchContainer>
+              <FilterDateContainer>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      label="Start Date"
+                      value={startDate}
+                      onChange={(newValue) => setStartDate(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
 
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DatePicker"]}>
-                <DatePicker
-                  label="End Date"
-                  value={endDate}
-                  onChange={(newValue) => setEndDate(newValue)}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
-          </FilterDateContainer>
-          <FilterTransactionTypeContainer>
-            <CheckBoxContainer>
-              <input
-                type="checkbox"
-                checked={showPassed}
-                onChange={() => setShowPassed(!showPassed)}
-              />
-              <p>Passed</p>
-            </CheckBoxContainer>
-
-            <CheckBoxContainer>
-              <input
-                type="checkbox"
-                checked={showFailed}
-                onChange={() => setShowFailed(!showFailed)}
-              />
-              <p>Failed</p>
-            </CheckBoxContainer>
-          </FilterTransactionTypeContainer>
-          <FilterStockContainer>
-            {uniqueStockNames.map((stock) => {
-              return (
-                <CheckBoxContainer key={stock}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      label="End Date"
+                      value={endDate}
+                      onChange={(newValue) => setEndDate(newValue)}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </FilterDateContainer>
+              <FilterTransactionTypeContainer>
+                <CheckBoxContainer>
                   <input
                     type="checkbox"
-                    checked={selectedStocks.includes(stock)}
-                    onChange={() => {
-                      const updatedStocks = selectedStocks.includes(stock)
-                        ? selectedStocks.filter(
-                            (selected) => selected !== stock
-                          )
-                        : [...selectedStocks, stock];
-
-                      setSelectedStocks(updatedStocks);
-                    }}
+                    checked={showPassed}
+                    onChange={() => setShowPassed(!showPassed)}
                   />
-                  <p>{stock}</p>
+                  <p>Passed</p>
                 </CheckBoxContainer>
-              );
-            })}
-          </FilterStockContainer>
-        </FilterSection>
-      </FilterSectionContainer>
-      <TransactionSection>
-        {filterResults.length > 0 &&
-          filterResults.map((transactionGroup) => {
-            return (
-              <DateContainer key={transactionGroup.date}>
-                <p>{formatDateToCustomFormat(transactionGroup.date)}</p>
-                {transactionGroup.transactions.map((transaction) => {
+
+                <CheckBoxContainer>
+                  <input
+                    type="checkbox"
+                    checked={showFailed}
+                    onChange={() => setShowFailed(!showFailed)}
+                  />
+                  <p>Failed</p>
+                </CheckBoxContainer>
+              </FilterTransactionTypeContainer>
+              <FilterStockContainer>
+                {uniqueStockNames.map((stock) => {
                   return (
-                    <TransactionItemData key={transaction.stock_name}>
-                      <Details>{transaction.stock_name}</Details>
-                      <Details>{transaction.stock_symbol}</Details>
-                      <Details>₹{transaction.transaction_price}</Details>
-                      <TimeStampAndStatus>
-                        <p>{formatTimestampToTime(transaction.timestamp)}</p>
-                        <TransactionTypeContainer
-                          $type={transaction.status}
-                        ></TransactionTypeContainer>
-                      </TimeStampAndStatus>
-                    </TransactionItemData>
+                    <CheckBoxContainer key={stock}>
+                      <input
+                        type="checkbox"
+                        checked={selectedStocks.includes(stock)}
+                        onChange={() => {
+                          const updatedStocks = selectedStocks.includes(stock)
+                            ? selectedStocks.filter(
+                                (selected) => selected !== stock
+                              )
+                            : [...selectedStocks, stock];
+
+                          setSelectedStocks(updatedStocks);
+                        }}
+                      />
+                      <p>{stock}</p>
+                    </CheckBoxContainer>
                   );
                 })}
-              </DateContainer>
-            );
-          })}
-        {filterResults.length === 0 &&
-          sortedTransactions.map((transactionGroup) => {
-            return (
-              <DateContainer key={transactionGroup.date}>
-                <p>{formatDateToCustomFormat(transactionGroup.date)}</p>
-                {transactionGroup.transactions.map((transaction) => {
-                  return (
-                    <TransactionItemData key={transaction.stock_name}>
-                      <Details>{transaction.stock_name}</Details>
-                      <Details>{transaction.stock_symbol}</Details>
-                      <Details>₹{transaction.transaction_price}</Details>
-                      <TimeStampAndStatus>
-                        <p>{formatTimestampToTime(transaction.timestamp)}</p>
-                        <TransactionTypeContainer
-                          $type={transaction.status}
-                        ></TransactionTypeContainer>
-                      </TimeStampAndStatus>
-                    </TransactionItemData>
-                  );
-                })}
-              </DateContainer>
-            );
-          })}
-      </TransactionSection>
-    </PortfolioMainSection>
+              </FilterStockContainer>
+            </FilterSection>
+          </FilterSectionContainer>
+          <TransactionSection>
+            {filterResults.length > 0 &&
+              filterResults.map((transactionGroup) => {
+                return (
+                  <DateContainer key={transactionGroup.date}>
+                    <p>{formatDateToCustomFormat(transactionGroup.date)}</p>
+                    {transactionGroup.transactions.map((transaction) => {
+                      return (
+                        <TransactionItemData key={transaction.stock_name}>
+                          <Details>{transaction.stock_name}</Details>
+                          <Details>{transaction.stock_symbol}</Details>
+                          <Details>₹{transaction.transaction_price}</Details>
+                          <TimeStampAndStatus>
+                            <p>
+                              {formatTimestampToTime(transaction.timestamp)}
+                            </p>
+                            <TransactionTypeContainer
+                              $type={transaction.status}
+                            ></TransactionTypeContainer>
+                          </TimeStampAndStatus>
+                        </TransactionItemData>
+                      );
+                    })}
+                  </DateContainer>
+                );
+              })}
+            {filterResults.length === 0 &&
+              sortedTransactions.map((transactionGroup) => {
+                return (
+                  <DateContainer key={transactionGroup.date}>
+                    <p>{formatDateToCustomFormat(transactionGroup.date)}</p>
+                    {transactionGroup.transactions.map((transaction) => {
+                      return (
+                        <TransactionItemData key={transaction.stock_name}>
+                          <Details>{transaction.stock_name}</Details>
+                          <Details>{transaction.stock_symbol}</Details>
+                          <Details>₹{transaction.transaction_price}</Details>
+                          <TimeStampAndStatus>
+                            <p>
+                              {formatTimestampToTime(transaction.timestamp)}
+                            </p>
+                            <TransactionTypeContainer
+                              $type={transaction.status}
+                            ></TransactionTypeContainer>
+                          </TimeStampAndStatus>
+                        </TransactionItemData>
+                      );
+                    })}
+                  </DateContainer>
+                );
+              })}
+          </TransactionSection>
+        </PortfolioMainSection>
+      )}
+      {transactionsState === "error" && <p>Data not found</p>}
+    </>
   );
 }

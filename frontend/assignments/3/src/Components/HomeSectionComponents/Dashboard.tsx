@@ -27,6 +27,7 @@ import {
   markAsWishlisted,
 } from "../../ReduxFiles/StockSlice";
 import WishListImageComponent from "./WishListImageComponent";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 
 export function Dashboard() {
   const [value, setValue] = useState("1");
@@ -68,97 +69,57 @@ export function Dashboard() {
   };
 
   return (
-    <DasboardSection>
-      <TabSection>
-        <Tabs
-          value={value}
-          onChange={(event, newValue) => handleChange(newValue)}
-        >
-          <Tab
-            label="Explore"
-            value="1"
-            sx={{
-              color: "black",
-              fontFamily: "Poppins, sans-serif",
-              fontSize: "1rem",
-              "&.Mui-selected": {
-                borderBottom: "2px solid #1971c2",
-                color: "#1971c2",
-              },
-            }}
-          />
-          <Tab
-            label="My WatchList"
-            value="2"
-            sx={{
-              color: "black",
-              fontFamily: "Poppins, sans-serif",
-              fontSize: "1rem",
-              "&.Mui-selected": {
-                borderBottom: "2px solid #1971c2",
-                color: "#1971c2",
-              },
-            }}
-          />
-        </Tabs>
-      </TabSection>
-
-      <TableSection>
-        <TableContainer
-          sx={{ border: "3px solid #5B6065", borderRadius: "15px" }}
-          component={Paper}
-        >
-          <Table>
-            <TableHead
-              sx={{ marginInline: "20px", borderBottom: "3px solid #5B6065" }}
+    <>
+      {state === "pending" && <LoadingSpinner />}
+      {state === "fulfilled" && (
+        <DasboardSection>
+          <TabSection>
+            <Tabs
+              value={value}
+              onChange={(event, newValue) => handleChange(newValue)}
             >
-              <TableRow>
-                <TableCell
+              <Tab
+                label="Explore"
+                value="1"
+                sx={{
+                  color: "black",
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "1rem",
+                  "&.Mui-selected": {
+                    borderBottom: "2px solid #1971c2",
+                    color: "#1971c2",
+                  },
+                }}
+              />
+              <Tab
+                label="My WatchList"
+                value="2"
+                sx={{
+                  color: "black",
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "1rem",
+                  "&.Mui-selected": {
+                    borderBottom: "2px solid #1971c2",
+                    color: "#1971c2",
+                  },
+                }}
+              />
+            </Tabs>
+          </TabSection>
+
+          <TableSection>
+            <TableContainer
+              sx={{ border: "3px solid #5B6065", borderRadius: "15px" }}
+              component={Paper}
+            >
+              <Table>
+                <TableHead
                   sx={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 300,
-                    fontSize: "1.6rem",
-                    marginInline: "200px",
-                    width: "60%",
-                    paddingLeft: "50px",
-                    paddingBlock: "30px",
+                    marginInline: "20px",
+                    borderBottom: "3px solid #5B6065",
                   }}
                 >
-                  Company
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 300,
-                    fontSize: "1.6rem",
-                    width: "15%",
-                  }}
-                >
-                  Base Price
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 300,
-                    fontSize: "1.6rem",
-                    width: "15%",
-                    paddingRight: "50px",
-                  }}
-                >
-                  Watchlist
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {renderStocks
-                .slice(indexOfFirstStock, indexOfLastStock)
-                .map((stock) => (
-                  <TableRow
-                    key={stock.stock_name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+                  <TableRow>
                     <TableCell
                       sx={{
                         fontFamily: "Poppins, sans-serif",
@@ -171,6 +132,13 @@ export function Dashboard() {
                       <LinkTag to={`/stock/${stock.stock_symbol}`}>
                         {stock.stock_name}
                       </LinkTag>
+                        marginInline: "200px",
+                        width: "60%",
+                        paddingLeft: "50px",
+                        paddingBlock: "30px",
+                      }}
+                    >
+                      Company
                     </TableCell>
                     <TableCell
                       align="center"
@@ -182,6 +150,7 @@ export function Dashboard() {
                       }}
                     >
                       {stock.base_price}
+                      Base Price
                     </TableCell>
                     <TableCell
                       align="center"
@@ -190,35 +159,86 @@ export function Dashboard() {
                         fontWeight: 300,
                         fontSize: "1.6rem",
                         width: "15%",
+                        paddingRight: "50px",
                       }}
                     >
-                      <WishListImageComponent
-                        onClick={() => handleWishListClick(stock)}
-                        wishlisted={stock.wishlisted}
-                      />
+                      Watchlist
                     </TableCell>
                   </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-          <Stack
-            spacing={2}
-            style={{
-              alignItems: "center",
-              paddingBlock: "20px",
-              borderTop: "1px solid black",
-              paddingBottom: "30px",
-            }}
-          >
-            <Pagination
-              count={Math.ceil(stocks.length / rowsPerPage)}
-              color="primary"
-              page={page}
-              onChange={handlePageChange}
-            />
-          </Stack>
-        </TableContainer>
-      </TableSection>
-    </DasboardSection>
+                </TableHead>
+                <TableBody>
+                  {renderStocks
+                    .slice(indexOfFirstStock, indexOfLastStock)
+                    .map((stock) => (
+                      <TableRow
+                        key={stock.stock_name}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell
+                          sx={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontWeight: 300,
+                            fontSize: "1.6rem",
+                            paddingLeft: "50px",
+                            paddingBlock: "20px",
+                          }}
+                        >
+                          <LinkTag to={`/stock/${stock.stock_symbol}`}>
+                            {stock.stock_name}
+                          </LinkTag>
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontWeight: 300,
+                            fontSize: "1.6rem",
+                            width: "15%",
+                          }}
+                        >
+                          {stock.base_price}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontWeight: 300,
+                            fontSize: "1.6rem",
+                            width: "15%",
+                          }}
+                        >
+                          <WishListImageComponent
+                            onClick={() => handleWishListClick(stock)}
+                            wishlisted={stock.wishlisted}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+              <Stack
+                spacing={2}
+                style={{
+                  alignItems: "center",
+                  paddingBlock: "20px",
+                  borderTop: "1px solid black",
+                  paddingBottom: "30px",
+                }}
+              >
+                <Pagination
+                  count={Math.ceil(stocks.length / rowsPerPage)}
+                  color="primary"
+                  page={page}
+                  onChange={handlePageChange}
+                />
+              </Stack>
+            </TableContainer>
+          </TableSection>
+        </DasboardSection>
+      )}
+      {state === "error" && <p>Data not found</p>}
+    </>
   );
 }
