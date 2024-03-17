@@ -1,0 +1,35 @@
+main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+  font-family: "Poppins", sans-serif;
+
+  .main-heading {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+    letter-spacing: 4px;
+
+    .marketplace {
+      color: #2a2a72;
+    }
+  }
+
+  .items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .no-items-found {
+      margin-top: 200px;
+      padding-bottom: 2000px;
+      font-size: 40px;
+      padding-left: 600px;
+      text-align: center;
+    }
+  }
+}
