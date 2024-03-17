@@ -1,0 +1,50 @@
+$TEXTCOLOR : #333A41;
+$BORDER: rgba(128, 128, 128, 0.447);
+.main-cont{
+    width: 69%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: $TEXTCOLOR;
+    border: 1px solid $BORDER;
+
+    #item-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 20px;
+        margin-top: 20px;
+
+        .input-section{
+            display: flex;
+            gap: 7px;
+
+            #input-box{
+                width: 20%;
+                padding: 4px;
+                outline: none;
+                border: 1px solid $BORDER;
+            }
+            #submit-button{
+                padding: 4px;
+                background-color: $TEXTCOLOR;
+                color: white;
+                border: 1px solid black;
+                border-radius: 2px;
+            }
+        }
+    }
+    #list-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-inline: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.main-cont-heading{
+    font-size: 22px;
+    font-weight: 600;
+}
