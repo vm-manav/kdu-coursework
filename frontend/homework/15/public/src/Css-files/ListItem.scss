@@ -1,0 +1,77 @@
+$BUTTONCOLORRED: #f0143e;
+$TEXTCOLORWHITE: white;
+$border-color: rgba(128, 128, 128, 0.447);
+
+.individual-list-element {
+  &:last-child {
+    border-bottom: 1px solid $border-color;
+  }
+  .list-item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $border-color;
+    border-inline: 1px solid $border-color;
+
+    .input-and-checkbox-box {
+      padding-left: 5px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      .list-item-name {
+        font-size: 15px;
+        padding: 6px;
+        padding-inline: 10px;
+        word-wrap: break-word;
+      }
+      .checkbox {
+        align-self: center;
+      }
+    }
+    .edit-and-delete-box {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .edit-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .delete-button {
+        font-size: 15px;
+        margin-block: 5px;
+        padding-inline: 7px;
+        padding-block: 2px;
+        background-color: $BUTTONCOLORRED;
+        color: white;
+        border: none;
+        outline: none;
+        margin-right: 10px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.edit-section {
+  padding-block: 5px;
+  display: flex;
+  gap: 10px;
+  .edit-input {
+    max-width: 50%;
+    padding-left: 5px;
+    padding-block: 2px;
+    font-size: 15px;
+  }
+  .edit-button {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #333a41;
+    color: white;
+    padding-inline: 10px;
+  }
+}
