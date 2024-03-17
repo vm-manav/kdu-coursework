@@ -1,0 +1,123 @@
+@use './fonts.scss' as *;
+
+$TEXTCOLORWHITE: white;
+$BACKGROUNDCOLORBLACK: black;
+$TEXTCOLORBLUE:#1D9BF0;
+
+
+body{
+    margin: 0;
+}
+main{
+    height: 100vh;
+    width: 100%;
+    background-color: $BACKGROUNDCOLORBLACK;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .login-heading{
+        display: flex;
+        align-content: end;
+        gap: 10px;
+        p{
+            margin: 0;
+            color: $TEXTCOLORWHITE;
+            font-size: 60px;
+            font-weight: 500;
+            font-family: ChirpMedium,sans-serif;
+        }
+        img{
+            width: 56px;
+            height: 56px;
+        }
+    }
+    .login-input-section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        gap: 20px;
+        #username{
+            background-color: $BACKGROUNDCOLORBLACK;
+            color: $TEXTCOLORWHITE;
+            outline: none;
+            width: 18%;
+            border: 2px solid $TEXTCOLORBLUE;
+            border-radius: 7px;
+            font-family: ChirpMedium,sans-serif;
+            font-size: 22px;
+            padding-left: 18px;
+            padding-block: 11px;
+        }
+        input::placeholder {
+            color: white;
+        }
+        #password{
+            background-color: $BACKGROUNDCOLORBLACK;
+            color: $TEXTCOLORWHITE;
+            outline: none;
+            width: 18%;
+            border: 2px solid $TEXTCOLORBLUE;
+            border-radius: 7px;
+            font-family: ChirpMedium,sans-serif;
+            font-size: 22px;
+            padding-left: 18px;
+            padding-block: 11px;
+        }
+    }
+    .login-button-container{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        #login-button{
+            width: 19%;
+            padding-block: 10px;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            font-family: ChirpBold,sans-serif;
+            color: $TEXTCOLORWHITE;
+            background-color: $TEXTCOLORBLUE;
+            font-size: 16px;
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    main{
+        .login-heading{
+            gap: 8px;
+            p{
+                margin: 0;
+                color: $TEXTCOLORWHITE;
+                font-size: 46px;
+                font-weight: 46px;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .login-input-section{
+            #username{
+                width: 60%;
+                font-size: 18px;
+            }
+            #password{
+                width: 60%;
+                font-size: 18px;
+            }
+        }
+        .login-button-container{
+            #login-button{
+                width: 65%;
+                font-size: 13px;
+            }
+        }
+    }
+
+    
+}

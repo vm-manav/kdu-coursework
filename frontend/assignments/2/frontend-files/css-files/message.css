@@ -1,0 +1,404 @@
+@font-face {
+  font-family: ChirpRegular;
+  src: url(/frontend-files/fonts/Chirp-Regular.woff2);
+}
+@font-face {
+  font-family: ChirpMedium;
+  src: url(/frontend-files/fonts/Chirp-Medium.woff2);
+}
+@font-face {
+  font-family: ChirpHeavy;
+  src: url(/frontend-files/fonts/Chirp-Heavy.woff2);
+}
+@font-face {
+  font-family: ChirpBold;
+  src: url(/frontend-files/fonts/Chirp-Bold.woff2);
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+body main {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-logo-button {
+  display: none;
+}
+
+.home-navigation {
+  display: none;
+}
+
+.navigation-section {
+  height: 100vh;
+  margin: 0;
+  margin-left: 40px;
+  padding-inline: 8px;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+}
+.navigation-section .upper-nav-block .main-nav {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2px;
+}
+.navigation-section .upper-nav-block .main-nav img {
+  width: 50px;
+  height: 50px;
+  padding-block: 10px;
+}
+.navigation-section .upper-nav-block .nav-option-element {
+  margin-block: 4px;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  padding: 12px;
+  gap: 10px;
+}
+.navigation-section .upper-nav-block .nav-option-element img {
+  width: 26.25px;
+  height: 26.25px;
+}
+.navigation-section .upper-nav-block .nav-option-element p {
+  font-family: ChirpRegular, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+.navigation-section .upper-nav-block #nav-post-button {
+  background-color: #1D9BF0;
+  font-size: 15px;
+  font-family: ChirpMedium, sans-serif;
+  color: white;
+  width: 231.094px;
+  height: 50px;
+  padding-inline: 32px;
+  border: 1px;
+  border-radius: 30px;
+}
+.navigation-section .lower-nav-block {
+  margin-top: 80px;
+  padding: 12px;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.navigation-section .lower-nav-block #profile-image-nitesh {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.navigation-section .lower-nav-block .profile-details {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navigation-section .lower-nav-block .profile-details p {
+  width: 137.047px;
+  margin: 0;
+}
+.navigation-section .lower-nav-block .profile-details #name {
+  font-size: 15px;
+  font-family: ChirpMedium, sans-serif;
+}
+.navigation-section .lower-nav-block .profile-details #username {
+  font-size: 15px;
+  font-family: ChirpRegular, sans-serif;
+}
+.navigation-section .lower-nav-block #three-dots-nav {
+  padding-left: 20px;
+  width: 18.75;
+  height: 18.75px;
+}
+
+.users-message-container {
+  border-inline: 1px solid #2F3336;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+}
+.users-message-container .messages-heading {
+  color: white;
+  font-family: ChirpBold, sans-serif;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 30px;
+  margin: 0;
+  border-bottom: 1px solid #2F3336;
+}
+.users-message-container .users-dm {
+  display: flex;
+  flex-direction: column;
+}
+.users-message-container .users-dm .messages-individual-user {
+  display: flex;
+  padding-left: 25px;
+  margin-top: 10px;
+  gap: 13px;
+  padding-block: 10px;
+}
+.users-message-container .users-dm .messages-individual-user .messages-user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.users-message-container .users-dm .messages-individual-user .messages-user-name {
+  color: white;
+  font-family: ChirpMedium, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding-top: 15px;
+  margin: 0;
+}
+.users-message-container .users-dm .messages-individual-user .messages-user-username {
+  color: grey;
+  font-family: ChirpMedium, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  padding-top: 17px;
+  margin: 0;
+}
+
+.direct-message-container {
+  display: none;
+  height: 100vh;
+  position: relative;
+  width: 34%;
+  border-right: 1px solid #2F3336;
+}
+.direct-message-container .direct-message-user-name .arrow-back {
+  display: none;
+}
+.direct-message-container .direct-message-user-name p {
+  color: white;
+  font-family: ChirpBold, sans-serif;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 30px;
+  margin: 0;
+  border-bottom: 1px solid #2F3336;
+}
+.direct-message-container .coversation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 87.5vh;
+  padding-inline: 5px;
+}
+.direct-message-container .coversation-container .coversation-user {
+  margin-top: 14px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 8px;
+  padding-left: 5px;
+}
+.direct-message-container .coversation-container .coversation-user .conversation-message {
+  padding: 10px;
+  padding-inline: 20px;
+  background-color: #2F3336;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  font-family: ChirpMedium, sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0;
+  color: white;
+}
+.direct-message-container .coversation-container .coversation-user .conversation-time {
+  margin: 0;
+  font-family: ChirpMedium, sans-serif;
+  font-size: 12px;
+  color: grey;
+}
+.direct-message-container .coversation-container .coversation-you {
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  align-items: end;
+  margin-top: 14px;
+  width: 60%;
+  gap: 8px;
+}
+.direct-message-container .coversation-container .coversation-you .conversation-message {
+  font-family: ChirpMedium, sans-serif;
+  font-size: 21px;
+  color: white;
+  margin: 0;
+  background-color: #1D9BF0;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding: 10px;
+  padding-inline: 20px;
+}
+.direct-message-container .coversation-container .coversation-you .conversation-time {
+  margin: 0;
+  color: grey;
+  font-family: ChirpMedium, sans-serif;
+  font-size: 12px;
+}
+.direct-message-container .message-box-container {
+  border-top: 1px solid #202327;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  padding-top: 10px;
+}
+.direct-message-container .message-box-container .message-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #202327;
+  border-radius: 30px;
+  padding-inline: 20px;
+  width: 95%;
+  padding-block: 10px;
+  margin: 0 auto;
+}
+.direct-message-container .message-box-container .message-box #message-box-input {
+  border: none;
+  outline: none;
+  font-family: ChirpMedium, sans-serif;
+  font-size: 22px;
+  background-color: transparent;
+  color: white;
+}
+.direct-message-container .message-box-container .message-box #message-box-button {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 414px) {
+  body main {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+  }
+  .profile-logo-button {
+    display: flex;
+    position: absolute;
+    width: -moz-fit-content;
+    width: fit-content;
+    top: 12px;
+    left: 12px;
+  }
+  .profile-logo-button img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .navigation-section {
+    display: none;
+  }
+  .users-message-container {
+    width: 100%;
+  }
+  .users-message-container .messages-heading {
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+    padding-left: 55px;
+    font-size: 25px;
+  }
+  .users-message-container .users-dm .messages-individual-user {
+    width: 100%;
+    padding-left: 20px;
+    gap: 10px;
+  }
+  .users-message-container .users-dm .messages-individual-user .messages-user-image {
+    width: 45px;
+    height: 45px;
+  }
+  .users-message-container .users-dm .messages-individual-user .messages-user-name {
+    font-size: 18px;
+    padding-top: 13px;
+  }
+  .users-message-container .users-dm .messages-individual-user .messages-user-username {
+    font-size: 16px;
+    padding-top: 14px;
+  }
+  .direct-message-container {
+    background-color: black;
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+    border-inline: 1px solid #2F3336;
+  }
+  .direct-message-container .direct-message-user-name {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+  }
+  .direct-message-container .direct-message-user-name .arrow-back {
+    display: flex;
+    padding-top: 12px;
+    padding-left: 5px;
+  }
+  .direct-message-container .direct-message-user-name .arrow-back img {
+    width: 30px;
+    height: 30px;
+  }
+  .direct-message-container .direct-message-user-name p {
+    width: 100%;
+    font-size: 25px;
+  }
+  .direct-message-container .coversation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 87vh;
+  }
+  .direct-message-container .coversation-container .coversation-user .conversation-message {
+    font-size: 18px;
+  }
+  .direct-message-container .coversation-container .coversation-you {
+    margin-right: 6px;
+  }
+  .direct-message-container .coversation-container .coversation-you .conversation-message {
+    font-size: 18px;
+  }
+  .direct-message-container .message-box-container {
+    bottom: 13px;
+    width: 97%;
+  }
+  .direct-message-container .message-box-container .message-box #message-box-input {
+    font-size: 18px;
+  }
+  .direct-message-container .message-box-container .message-box #message-box-button {
+    width: 25px;
+    height: 25px;
+  }
+  .home-navigation {
+    border-top: 1px solid gray;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .home-navigation .nav-option-element {
+    padding-block: 10px;
+  }
+  .home-navigation .nav-option-element .nav-svg-image {
+    width: 30px;
+    height: 30px;
+  }
+}/*# sourceMappingURL=message.css.map */
